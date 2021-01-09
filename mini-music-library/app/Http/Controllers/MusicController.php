@@ -14,7 +14,7 @@ class MusicController extends Controller
      */
     public function index()
     {
-        $musics = Music::latest()->pagination(5);
+        $musics = Music::latest()->paginate(5);
 
         return view('musics.index', compact('musics'))
                 ->with('i',(request()->input('page', 1) - 1) * 5);
@@ -38,7 +38,7 @@ class MusicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -83,6 +83,9 @@ class MusicController extends Controller
      */
     public function destroy(music $music)
     {
-        //
+        $music->delete();
+  
+        return redirect()->route('musics.index')
+                        ->with('success','Music deleted successfully');
     }
 }

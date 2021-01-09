@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MusicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('music','MusicController');
+Route::resource('musics','MusicController');
